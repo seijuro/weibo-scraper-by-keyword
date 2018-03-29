@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 
 public class AppOptionParser {
 
+    private static final Logger LOG = LoggerFactory.getLogger(AppOptionParser.class.getName());
+
     enum MainOption {
         KEYWORD("k", "keyword", true, true, "Search keywords (delimiter : camma ',' )"),
         BEGEIN("b", "begin", false, true, "start date (format yyyyMMdd, yyyyMMddHH)"),
@@ -30,8 +32,6 @@ public class AppOptionParser {
             this.description = $description;
         }
     }
-
-    private static final Logger LOG = LoggerFactory.getLogger(AppOptionParser.class.getName());
 
     public static AppOptions parse(String args[]) {
         AppOptions appOptions = AppOptions.getInstance();

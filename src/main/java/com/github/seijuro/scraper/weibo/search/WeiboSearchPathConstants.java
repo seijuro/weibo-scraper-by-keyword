@@ -46,12 +46,11 @@ public class WeiboSearchPathConstants {
             public static class FeedListItem {
                 public static final String FEEDLIST_ITEM_XPATH = "div[contains(@class, 'WB_cardwrap')]/div[@action-type='feed_list_item']";
 
-                public static final String FEEDLIST_ITEM_DETAIL_XPATH = "//div[contains(@class, 'feed_list')]";
-                public static final String FEEDLIST_ITEM_ACTION_XPATH = "//div[contains(@class, 'feed_action')]";
+                public static final String FEEDLIST_ITEM_DETAIL_XPATH = "div[contains(@class, 'feed_list')]";
+                public static final String FEEDLIST_ITEM_ACTION_XPATH = "div[contains(@class, 'feed_action')]";
 
                 //  detail(s)
                 public static final String FEEDLIST_ITEM_DETAIL_FACE_XPATH = FEEDLIST_ITEM_DETAIL_XPATH + "//div[@class='face']";
-//                public static final String FEEDLIST_ITEM_DETAIL_CONTENT_XPATH = FEEDLIST_ITEM_DETAIL_XPATH + "//div[contains(@class, 'content')]/div[contains[@class, 'feed_content')]";
 
                 //  detail - face
                 public static final String FEEDLIST_ITEM_DETAIL_FACE_LINK_XPATH = FEEDLIST_ITEM_DETAIL_FACE_XPATH + "/a";
