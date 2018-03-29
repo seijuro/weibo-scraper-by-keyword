@@ -17,6 +17,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -260,9 +261,18 @@ public class WeiboSearchWebScraper extends KeywordWebScraper implements Runnable
         LOG.debug("current url : {} -> page : {}", currentUrl, page);
 
         try {
-            String filepath = "/Users/myungjoonlee/Desktop/WeiboSnapshot/" + String.format("%s_%s.html", searchCondition.toString(), page);
+            String filepath;
+
+            filepath = String.format("%s%s%s_%s.htm",
+                    appConfig.getPageDirectoryPath(),
+                    appConfig.getPageDirectoryPath().endsWith(File.separator) ? "" : File.separator,
+                    searchCondition.toString(), page);
             save(filepath, this.webDriver.getPageSource(), REPLRULE_LINKS_TO_SAVE);
-//            snapshot("/Users/myungjoonlee/Desktop/WeiboSnapshot/" + String.format("%s_%s.png", searchCondition.toString(), page));
+            filepath = String.format("%s%s%s_%s.png",
+                    appConfig.getSnapshotDirectoryPath(),
+                    appConfig.getPageDirectoryPath().endsWith(File.separator) ? "" : File.separator,
+                    searchCondition.toString(), page);
+            snapshot(filepath);
         }
         catch (IOException ioexcp) {
             ioexcp.printStackTrace();
